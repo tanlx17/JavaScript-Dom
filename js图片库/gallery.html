@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Image Gallery</title>
+    </head>
+
+    <body>
+        <h1>Snapshots</h1>
+        <ul>
+            <li>
+                <a href="images/fireworks.jpeg" title="A fireworks display" onclick="showPic(this);return false;">Fireworks</a>
+            </li>
+            <li>
+                <a href="images/coffee.jpg" title="A cup of black coffee" onclick="showPic(this);return false;">Coffee</a>
+            </li>
+            <li>
+                <a href="images/rose.jpg" title="A red, red rose" onclick="showPic(this);return false;">Rose</a>
+            </li>
+            <li>
+                <a href="images/big-ben.jpg" title="The famous clock" onclick="showPic(this);return false;">Big Ben</a>
+            </li>
+        </ul>
+        <img id="placeholder" src="images/placeholder.gif" alt="my image gallery" height="340px" width="450px" /><br>
+        <!--
+            <input id="description" type="text" value="Choose an image."/>
+        -->
+        <p id="description">Choose an image.</p>
+
+
+        <script>
+            function showPic(whichpic){
+                var source=whichpic.getAttribute("href");
+                var placeholder=document.getElementById("placeholder");
+                placeholder.setAttribute("src",source);
+                var text = whichpic.getAttribute("title");
+                //document.getElementById("description").setAttribute("value",text);
+                var description = document.getElementById("description");
+                description.firstChild.nodeValue = text;
+                //等价于 description.childNodes[0].nodeValue = text;
+            }
+
+            function countBodyChildren(){
+                var body_element = document.getElementsByTagName("body")[0].childNodes;
+                var count=0;
+                for(var i=0;i<body_element.length;i++){
+                    if(body_element[i].nodeType==1){
+                        count++;
+                    }
+                }
+                alert(count);
+            }
+            window.onload = countBodyChildren;
+        </script>
+    </body>
+</html>

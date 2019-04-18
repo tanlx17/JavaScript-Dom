@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {width: 200px; height: 200px; border: 1px solid black; }
+        .box {background: red;}
+    </style>
+    <script>
+        //1.style加样式 行间
+        //2.样式优先级： * < 标签 < class < ID <行间样式
+        //3.style与className
+        //  -元素.style.属性=xxx 是修改行间样式
+        //  -之后再修改className不会有效果
+        //  -忠告：从一而终，选用一种
+
+        function toRed() {
+            var oDiv=document.getElementById('div1');
+            //oDiv.style.background='red';
+            //alert(oDiv.style.background);
+            oDiv.className='box';
+        }
+
+        function toGreen() {
+            var oDiv=document.getElementById('div1');
+            oDiv.style.background='green';
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="变红" onclick="toRed()">
+<input type="button" value="变绿" onclick="toGreen()">
+<div id="div1"></div>
+</body>
+</html>
