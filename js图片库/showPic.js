@@ -1,7 +1,8 @@
-
-var a = document.getElementsByTagName("a");
-for (var i = 0; i < a.length; i++) {
-    a[i].onclick = function () {
+  
+var gallery = document.getElementById("imageGallery");
+var links = gallery.getElementsByTagName("a");
+for (var i = 0; i < links.length; i++) {
+    links[i].onclick = function () {
         showPic(this);
         return false;
     }
